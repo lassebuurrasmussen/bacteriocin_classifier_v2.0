@@ -1,0 +1,7 @@
+.idea/
+elmo_model_uniref50/
+
+test_data/test_predictions.dump
+test_data/test_X.dump
+
+weights/tf_weights.pickle
