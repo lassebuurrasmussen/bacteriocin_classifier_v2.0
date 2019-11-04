@@ -1,4 +1,5 @@
 import argparse
+import time
 from pathlib import Path
 
 import torch
@@ -28,7 +29,11 @@ def main(cuda_device, fasta_input_file, csv_output_file):
     net.load_state_dict(torch.load("./weights/bacteriocin_classifier_params.dump"))
     net.eval()
 
+    print("Predicting sequences..")
+    start_time = time.time()
     outpt = net(inpt)
+    end_time = time.time()
+    print(f"Took {end_time - start_time} seconds")
 
     # Save results
     (DataFrame(outpt.detach().numpy(), columns=['not_bacteriocin_score', 'bacteriocin_score'])

@@ -1,3 +1,4 @@
+import time
 from pathlib import Path
 
 import numpy as np
@@ -49,11 +50,14 @@ def encode_input_fasta(input_fasta, cuda_device, max_length=359, elmo_dimension=
     assert all(seq_lengths <= max_length), f"String length exceeding {max_length}"
 
     print("Embedding sequences..")
+    start_time = time.time()
     residue_list = [list(s) for s in df['Sequence']]
     seqvec = load_elmo_model(cuda_device=cuda_device)
     embedding = list(seqvec.embed_sentences(residue_list))
     embedding = pad_n_flatten_embeddings(embedding=embedding, max_length=max_length,
                                          elmo_dimension=elmo_dimension)
+    end_time = time.time()
+    print(f"Took {end_time - start_time} seconds")
 
     # Channel dimension is the second one for PyTorch convolution
     return torch.tensor(embedding.swapaxes(1, 2))
