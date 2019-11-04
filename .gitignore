@@ -5,3 +5,5 @@ test_data/test_predictions.dump
 test_data/test_X.dump
 
 weights/tf_weights.pickle
+results.csv
+__pycache__/
