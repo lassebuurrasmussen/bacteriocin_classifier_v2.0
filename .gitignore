@@ -7,3 +7,4 @@ test_data/test_X.dump
 weights/tf_weights.pickle
 results.csv
 __pycache__/
+todo.txt
