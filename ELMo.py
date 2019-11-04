@@ -2,6 +2,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import torch
 from Bio import SeqIO
 
 from allennlp.commands.elmo import ElmoEmbedder
@@ -54,7 +55,8 @@ def encode_input_fasta(input_fasta, cuda_device, max_length=359, elmo_dimension=
     embedding = pad_n_flatten_embeddings(embedding=embedding, max_length=max_length,
                                          elmo_dimension=elmo_dimension)
 
-    return embedding
+    # Channel dimension is the second one for PyTorch convolution
+    return torch.tensor(embedding.swapaxes(1, 2))
 
 
 if __name__ == '__main__':
