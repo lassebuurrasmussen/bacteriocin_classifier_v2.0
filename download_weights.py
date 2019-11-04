@@ -60,5 +60,5 @@ if __name__ == "__main__":
     download_file(google_id='1VaA92XizlP88AjJTPr7BJ2Nh_q2qmi5s',
                   dest='elmo_model_uniref50/seqvec.zip')
 
-    download_file(google_id='1JF2e7JaeRmghN5FzKG04vOrztODnZcyJ',
-                  dest='weights/bacteriocin_classifier_params.dump')
+    # download_file(google_id='1JF2e7JaeRmghN5FzKG04vOrztODnZcyJ',
+    #               dest='weights/bacteriocin_classifier_params.dump')
