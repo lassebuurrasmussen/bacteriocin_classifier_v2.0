@@ -20,8 +20,8 @@ def main(cuda_device=None):
 
     outpt = net(inpt)
 
-    DataFrame(outpt.detach().numpy())
+    return DataFrame(outpt.detach().numpy())
 
 
 if __name__ == "__main__":
-    main()
+    csv_output = main()
