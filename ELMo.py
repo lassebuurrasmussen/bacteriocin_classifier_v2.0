@@ -60,7 +60,7 @@ def encode_input_fasta(input_fasta, cuda_device, max_length=359, elmo_dimension=
     print(f"Took {end_time - start_time} seconds")
 
     # Channel dimension is the second one for PyTorch convolution
-    return torch.tensor(embedding.swapaxes(1, 2))
+    return torch.tensor(embedding.swapaxes(1, 2)), df['Name']
 
 
 if __name__ == '__main__':

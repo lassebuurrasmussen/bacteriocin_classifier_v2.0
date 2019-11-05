@@ -8,3 +8,4 @@ weights/tf_weights.pickle
 results.csv
 __pycache__/
 todo.txt
+.ipynb_checkpoints/

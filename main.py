@@ -29,8 +29,8 @@ def main(cuda_device, fasta_input_file, csv_output_file, fasta_input_paste=False
         csv_output_file = "./results.csv"
         print(f"No output path specified. Using {csv_output_file}")
 
-    inpt = encode_input_fasta(input_fasta=Path(fasta_input_file),
-                              cuda_device=cuda_device)
+    inpt, inpt_names = encode_input_fasta(input_fasta=Path(fasta_input_file),
+                                          cuda_device=cuda_device)
 
     os.remove("temp_fasta.faa") if fasta_input_paste else None
 
@@ -45,8 +45,10 @@ def main(cuda_device, fasta_input_file, csv_output_file, fasta_input_paste=False
     print(f"Took {end_time - start_time} seconds")
 
     # Save results
-    (DataFrame(outpt.detach().numpy(), columns=['not_bacteriocin_score', 'bacteriocin_score'])
-     .to_csv(csv_output_file))
+    out_df = DataFrame(outpt.detach().numpy(),
+                       columns=['not_bacteriocin_score', 'bacteriocin_score'])
+    out_df['Name'] = inpt_names
+    out_df[['Name', 'not_bacteriocin_score', 'bacteriocin_score']].to_csv(csv_output_file)
 
 
 if __name__ == "__main__":
