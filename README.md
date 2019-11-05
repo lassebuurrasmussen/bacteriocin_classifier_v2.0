@@ -1,6 +1,9 @@
 ## Welcome
 This repository is for my PyTorch reimplementation of my bacteriocin classifier developed during my Master's Thesis. You can find the old implementation [here](https://github.com/lassebuurrasmussen/bacteriocin_classifier/).
 
+#### A few acknowledgements
+As I've had some issues with installing the AllenNLP dependency, I've cloned their library into this repository. In other words: the [allennlp folder](allennlp) contains code from [AllenNLP](https://github.com/allenai/allennlp) and all the credit goes to the brilliant people of this organization. I owe them a big thanks for their wonderful implementation of the ELMo embedding algorithm. Moreover, the ELMo model that I'm using here comes from [Heinzinger et al 2019](https://www.biorxiv.org/content/10.1101/614313v3), and I'm very grateful that they've made their findings freely available to the world.
+
 #### You can access my paper [here](paper/thesis.pdf).
 
 #### To run my classifier
