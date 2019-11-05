@@ -12,7 +12,7 @@ If you are using this classifier for a smaller data set or you have sufficient h
 ```
 git clone https://github.com/lassebuurrasmussen/bacteriocin_classifier_v2.0
 cd bacteriocin_classifier_v2.0
-conda env create -yn bacteriocin_classifier -f environment.yml
+conda env create -f environment.yml -n bacteriocin_classifier
 conda activate bacteriocin_classifier
 ```
 The last line activates the newly installed environment.
@@ -21,7 +21,7 @@ To obtain the parameters of the embedding and classification model do:\
 ```python download_weights.py # make sure you ran the `cd bacteriocin_classifier_v2.0` command so that the files are placed properly```
 
 Now, to run the model on the fasta in file the [sample_fasta.faa](sample_fasta.faa) and put results in `results.csv` you can do:\
-`python main.py -f sample_fasta.faa -o results.csv`
+`python main.py -f test_data/sample_fasta.faa -o results.csv`
 
 And the output will be of the form:\
 ![](result.png)
